@@ -10,7 +10,7 @@ class BookController extends Controller
     public function index()
     {
         return view('Books.index', [
-            'books' => Book::latest()->paginate(5)->withQueryString()
+            'books' => Book::latest()->filter(request(['search']))->paginate(5)->withQueryString()
         ]);
     }
 

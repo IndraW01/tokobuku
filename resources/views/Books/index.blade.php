@@ -17,6 +17,17 @@
 
 <h1 class="text-center mb-5">Daftar Buku</h1>
 
+<div class="row justify-content-center mb-5">
+    <div class="col-md-6">
+        <form action="{{ route('book.index') }}" method="GET">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Search" name="search" id="search" value="{{ request('search') }}">
+                <button class="btn btn-warning" type="submit" id="search">Search</button>
+            </div>
+        </form>
+    </div>
+</div>
+
 <div class="row justify-content-beetwen mx-auto">
     @forelse ($books as $book)
     <div class="col-md-3 mb-3">

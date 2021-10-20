@@ -22,4 +22,12 @@ class Book extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function scopeFilter($query, $filters)
+    {
+        if($filters['search'] ?? false){
+            $query->where(fn($query) => $query->where("judul", "like", "%" . $filters['search'] . "%"));
+        }
+
+    }
 }
